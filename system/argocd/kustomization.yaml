@@ -1,0 +1,29 @@
+resources:
+- namespace.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.2/manifests/install.yaml
+- routes.yaml
+
+patches:
+  - patch: |-
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: argocd-cm
+      data:
+        admin.enabled: "true"
+        url: https://argocd.k8s.modlab.cloud
+        resource.exclusions: |
+          - apiGroups:
+            - cilium.io
+            kinds:
+            - CiliumIdentity
+            clusters:
+            - "*"
+  - patch: |-
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: argocd-cmd-params-cm
+      data:
+        server.insecure: "true"
+
