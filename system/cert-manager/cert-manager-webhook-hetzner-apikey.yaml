@@ -1,0 +1,20 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  labels:
+    app: webhook-hetzner
+    app.kubernetes.io/instance: cert-manager
+  name: cert-manager-webhook-hetzner-apikey
+  namespace: cert-manager
+spec:
+  encryptedData:
+    apiKey: AgAMJFKE3mQf36dGLjZnFDymFxFsQn/QM+kzWBxGUaOtFxNoe03xYuy+5bksoLGwN/7a8Wfw00vuHGyiB2luOgFtAYBWty2Jw9s2Qb3rK6p2DsNEmPFBIJEfoD/m3TlBrDCP2TvYlGK7Xu/FWf2HpZpLqQILcRU0/8kbhZNJYATOwbSFoMkEa5roXacnIcco5ANfBbMXVlp609m9s5A/nPvspYXUQwrh8RwG8Hc/2MFFZ/BikYFXM/14nAR03L8JGA3n+hvEIDcFkVs9KVSqOPkp+AlunKnMa4EzHpuvwOmCySRpsvhO0sMupZDgH+zxm2WTurqXq8Gc1Wr0auKVpjfjNiLvVq4xb+JFHdNIg8Is8v9OxWkbBJJ9IDNbq2IwkqarMrcoBpHkjVlI8E+E9sOtQz3F353XjxUV4pE9IOncc1UF1yQSNXpD/nThQfUGxkhIWwEEGG3rSVgfJtdRjNb/Pom1cX/QO+jIttqeCbLlzdW+VZLgx6xL7ibCDi29rmssSRfwGbhBnfW+vRl7Zn+Fp8xw3Mr2/xjrNST3q2BRSjmuK+C/iN4i0TFMr55YLARauRYlO49m9B0XIU4iwgwsWdyhrsOWGKmMaRROC/QtG6k6LGjVWqnFYH0axzdKI3GApl6x7m3id5JzhaM/J4itMUacLzpUu82E8a028kBPAid3zGfNcaQmAhp4ThLkIQ0EldCZ4EAhWo0mYfq8BRuh+lESHf/b++fYch/7RfpJwA==
+  template:
+    metadata:
+      labels:
+        app: webhook-hetzner
+        app.kubernetes.io/instance: cert-manager
+      name: cert-manager-webhook-hetzner-apikey
+      namespace: cert-manager
+    type: Opaque
