@@ -33,4 +33,6 @@ spec:
             groupName: dns.hetzner.cloud
             solverName: hetzner
             config:
-              secretName: cert-manager-webhook-hetzner-apikey
+              apiKeySecretRef:
+                name: cert-manager-webhook-hetzner-apikey
+                key: apiKey
