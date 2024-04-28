@@ -12,6 +12,12 @@ patches:
       spec:
         template:
           spec:
+            containers:
+            - name: csi-node-driver-registrar
+              args:
+                - '-v=5'
+                - '--csi-address=unix:///csi/csi.sock'
+                - '--kubelet-registration-path=/var/lib/k0s/kubelet/plugins/csi.proxmox.sinextra.dev/csi.sock'
             volumes:
               - name: socket
                 hostPath:
@@ -25,4 +31,3 @@ patches:
                 hostPath:
                   path: /var/lib/k0s/kubelet
                   type: Directory
-              - name: dev
