@@ -2,3 +2,27 @@ resources:
   - https://github.com/sergelogvinov/proxmox-csi-plugin/raw/v0.6.1/docs/deploy/proxmox-csi-plugin-release.yml
   - cloud-config.yaml
   - storageclasses.yaml
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: DaemonSet
+      metadata:
+        name: proxmox-csi-plugin-node
+        namespace: csi-proxmox
+      spec:
+        template:
+          spec:
+            volumes:
+              - name: socket
+                hostPath:
+                  path: /var/lib/k0s/kubelet/plugins/csi.proxmox.sinextra.dev/
+                  type: DirectoryOrCreate
+              - name: registration
+                hostPath:
+                  path: /var/lib/k0s/kubelet/plugins_registry/
+                  type: Directory
+              - name: kubelet
+                hostPath:
+                  path: /var/lib/k0s/kubelet
+                  type: Directory
+              - name: dev
