@@ -3,8 +3,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   labels:
-    kubernetes.io/description: |-
-      Promxox storage pool based on BTRFS RAID10 
+    kubernetes.io/description: "btrfs-raid10"
   name: cauldron
 
 parameters:
@@ -28,8 +27,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   labels:
-    kubernetes.io/description: |-
-      Promxox SSD (MX500) storage pool on LVM thin 
+    kubernetes.io/description: "mx500-ssd"
   name: ssd-thin
 provisioner: csi.proxmox.sinextra.dev
 allowVolumeExpansion: true
