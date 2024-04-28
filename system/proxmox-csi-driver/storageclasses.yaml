@@ -1,0 +1,44 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  labels:
+    kubernetes.io/description: |-
+      Promxox storage pool based on BTRFS RAID10 
+  name: cauldron
+
+parameters:
+  csi.storage.k8s.io/fstype: xfs
+  storage: cauldron
+  #cache: directsync|none|writeback|writethrough
+  ssd: "true"
+  #diskIOPS: "4000"
+  #diskMBps: "1000"
+
+mountOptions:
+- noatime
+- discard
+
+provisioner: csi.proxmox.sinextra.dev
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  labels:
+    kubernetes.io/description: |-
+      Promxox SSD (MX500) storage pool on LVM thin 
+  name: ssd-thin
+provisioner: csi.proxmox.sinextra.dev
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+parameters:
+  csi.storage.k8s.io/fstype: xfs
+  storage: ssd_thin
+  ssd: "true"
+mountOptions:
+- noatime
+- discard

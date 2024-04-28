@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: proxmox-csi-driver
+  namespace: argocd
+spec:
+  destination:
+    namespace: csi-proxmox
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: system/proxmox-csi-driver
+    repoURL: https://github.com/modzilla99/k8s-infra
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+status: {}

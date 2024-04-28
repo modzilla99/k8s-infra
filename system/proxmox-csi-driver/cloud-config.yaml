@@ -1,0 +1,19 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  labels:
+    app.kubernetes.io/instance: proxmox-csi-plugin
+    app.kubernetes.io/name: proxmox-csi-plugin
+  name: proxmox-csi-plugin
+  namespace: csi-proxmox
+spec:
+  encryptedData:
+    config.yaml: AgBzRsuOhGsW+03lu8HrwF1YqlVdpaa+p/F1Oc7A+8F95ODooZIs1Ou4Yb2MK4h1zOkBxskhhljJ/9jGvE0mMOb+NkNJyMzd+lTfnbwgEt3p+3IEVttCGx+4maWbjI0RLIRFPflh0DqKAnqXYmV2sDvGcuRtUKME8K/yoJZq9mLpW1tt/tDkjTODtaKODJrjCLAM0G3hvo2og5R47XgDrxRVTaFoSZGzH3LWZ3d562X5Spyl02DaF1N0+q9H2dGuP9fr17p2QkUpksu0dWTg2JBpKwRMd4zrTmtTuY1gxHuB6EUa3zwOCfxtu5MhjcECMK5RFzRz8/uOXoovosn/2qKPfPGCgZyOA4AXWeY+aWHXrYGMmiODHQra+zmP/rn/OTga71hrgwGGqv5I7f00vGYHCoxzObFJ45aX67Sxe7qk71D4cYt3kUmK6UVaOZKMdmSEoV6dlz1XGbKXS81zunT6TyaFRyVMy6qHJiZYmXY4FMQ5k0GzOo5aBowteN2ytLKAntphW03iRgiYs2cJopf7/Hbd/rb33WMm6+kcuZgfX11qApUJeRjBFMc9+HVuI1C+T/Z42nGcvb65UR4TD+b/QB+2CS8Pt2Eahr7/gNUuCc7O4lRUo9lRBlWmMsgXCOuLxXxENO92+CuDAGiAvRsS7i4eM8zucaaz4oa/ppIXmd4C7xrPBSEVnO0ARuRQqb1ijTcbrsZgcb9NkKaRrtEuJJrbWA74hUEdyIvyzi5d02P2+GnP+r32zEfF5GjSuAVAcIYOgEEACwobj9q4KnXGLdWTrTB3rXvn17tYY+VGcjl9L4AI7di6EWByBPrAUj8gPZaBMbxjMjTgblQ/t+CUCTOccliijqXC/g/M2Xgu4/J30H5RyditXcTsKtTYjtQ1d/zjR6WGZk5jmVdNX0lE8nUVhPgxA2YK9KLhAI8oMZhsJvqGkCouFVEo2ep5mu+uGjuw
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: proxmox-csi-plugin
+        app.kubernetes.io/name: proxmox-csi-plugin
+      name: proxmox-csi-plugin
+      namespace: csi-proxmox
