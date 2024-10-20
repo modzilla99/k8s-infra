@@ -10,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: system/gateway
+    path: system/contour
     repoURL: https://github.com/modzilla99/k8s-infra
     targetRevision: HEAD
   syncPolicy:
