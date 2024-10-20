@@ -8,7 +8,6 @@ spec:
   commonName: "modlab.cloud"
   dnsNames:
     - "modlab.cloud"
-    - "k8s.modlab.cloud"
     - "m0dz1lla.de"
     - "jlamp.eu"
     - "*.modlab.cloud"
