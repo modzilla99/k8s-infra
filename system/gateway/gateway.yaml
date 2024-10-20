@@ -1,0 +1,37 @@
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: default
+  namespace: projectcontour
+spec:
+  gatewayClassName: contour
+  listeners:
+  - allowedRoutes:
+      namespaces:
+        from: All
+    name: http
+    port: 80
+    protocol: HTTP
+  - allowedRoutes:
+      namespaces:
+        from: All
+    name: https
+    port: 443
+    protocol: HTTPS
+    tls:
+      certificateRefs:
+      - group: ""
+        kind: Secret
+        name: jlamp-eu-cert
+      - group: ""
+        kind: Secret
+        name: m0dz1lla-de-cert
+      - group: ""
+        kind: Secret
+        name: modlab-cloud-cert
+      - group: ""
+        kind: Secret
+        name: k8s-modlab-cloud-cert
+      mode: Terminate
+status: {}
