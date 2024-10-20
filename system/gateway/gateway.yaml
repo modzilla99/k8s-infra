@@ -23,14 +23,5 @@ spec:
       certificateRefs:
       - group: ""
         kind: Secret
-        name: jlamp-eu-cert
-      - group: ""
-        kind: Secret
-        name: m0dz1lla-de-cert
-      - group: ""
-        kind: Secret
-        name: modlab-cloud-cert
-      - group: ""
-        kind: Secret
-        name: k8s-modlab-cloud-cert
+        name: all-certificates
       mode: Terminate

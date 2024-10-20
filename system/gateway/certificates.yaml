@@ -2,59 +2,20 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: jlamp-eu-wildcard-cert
-  namespace: projectcontour
-spec:
-  commonName: "jlamp.eu"
-  dnsNames:
-    - "jlamp.eu"
-    - "*.jlamp.eu"
-  issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt
-  secretName: jlamp-eu-cert
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: m0dz1lla-de-wildcard-cert
-  namespace: projectcontour
-spec:
-  commonName: "m0dz1lla.de"
-  dnsNames:
-    - "m0dz1lla.de"
-    - "*.m0dz1lla.de"
-  issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt
-  secretName: m0dz1lla-de-cert
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: modlab-cloud-wildcard-cert
+  name: all-certificates
   namespace: projectcontour
 spec:
   commonName: "modlab.cloud"
   dnsNames:
     - "modlab.cloud"
-    - "*.modlab.cloud"
-  issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt
-  secretName: modlab-cloud-cert
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: k8s-modlab-cloud-wildcard-cert
-  namespace: projectcontour
-spec:
-  commonName: "k8s.modlab.cloud"
-  dnsNames:
     - "k8s.modlab.cloud"
+    - "m0dz1lla.de"
+    - "jlamp.eu"
+    - "*.modlab.cloud"
     - "*.k8s.modlab.cloud"
+    - "*.m0dz1lla.de"
+    - "*.jlamp.eu"
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt
-  secretName: k8s-modlab-cloud-cert
+  secretName: all-certificates
