@@ -2,6 +2,7 @@ resources:
 - namespace.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.2/manifests/install.yaml
 - routes.yaml
+- argo-secret.yaml
 
 patches:
   - patch: |-
@@ -19,6 +20,18 @@ patches:
             - CiliumIdentity
             clusters:
             - "*"
+        oidc.config: |
+          name: Zitadel
+          issuer: https://auth.modlab.cloud
+          clientID: "303798919266107418"
+          clientSecret: $oidc.zitadel.clientSecret
+          requestedScopes:
+            - openid
+            - profile
+            - email
+            - groups
+          logoutURL: https://auth.modlab.cloud/oidc/v1/end_session
+
   - patch: |-
       apiVersion: v1
       kind: ConfigMap
@@ -27,3 +40,14 @@ patches:
       data:
         server.insecure: "true"
 
+  - patch: |-
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: argocd-rbac-cm
+      data:
+        scopes: '[groups]'
+        policy.csv: |
+          g, administrator, role:admin
+          g, user, role:readonly
+        policy.default: ''
