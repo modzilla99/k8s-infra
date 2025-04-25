@@ -12,7 +12,7 @@ spec:
   source:
     path: system/gateway
     repoURL: https://github.com/modzilla99/k8s-infra
-    targetRevision: HEAD
+    targetRevision: oracle-cluster
   syncPolicy:
     automated: {}
 status: {}

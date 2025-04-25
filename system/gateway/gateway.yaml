@@ -1,24 +1,28 @@
 ---
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: default
-  namespace: projectcontour
+  name: cilium-gateway
+  namespace: kube-system
 spec:
-  gatewayClassName: contour
+  gatewayClassName: cilium
+  infrastructure:
+    annotations:
+      oci-network-load-balancer.oraclecloud.com/security-list-management-mode: All
+      oci.oraclecloud.com/load-balancer-type: nlb
   listeners:
-  - name: http
+  - allowedRoutes:
+      namespaces:
+        from: All
+    name: http
     port: 80
     protocol: HTTP
-    allowedRoutes:
+  - allowedRoutes:
       namespaces:
         from: All
-  - name: https
+    name: https
     port: 443
     protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: All
     tls:
       certificateRefs:
       - group: ""
