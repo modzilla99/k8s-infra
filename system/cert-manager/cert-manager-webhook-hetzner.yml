@@ -229,7 +229,7 @@ spec:
       serviceAccountName: cert-manager-webhook-hetzner
       containers:
         - name: cert-manager-webhook-hetzner
-          image: "modzilla/cert-manager-webhook-hetzner:0.5.0"
+          image: "modzilla/cert-manager-webhook-hetzner:v0.5.0"
           imagePullPolicy: Always
           args:
             - --tls-cert-file=/tls/tls.crt
